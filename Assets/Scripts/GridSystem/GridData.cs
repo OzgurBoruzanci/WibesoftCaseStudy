@@ -6,18 +6,21 @@ public class GridData
 {
     [Header("Objects")]
     [Space(2)]
-    public GameObject socketMain;
-    public GameObject socketGrid;
+    public GameObject GridObj;
 
     [Header("Values")]
     [Space(2)]
     public int gridWidth;
     public int gridHeight;
+    public int gridDepth;
     public GameObject[,] grid;
-    public bool isSocketTwoStoreys;
 
     [Header("Lists")]
     [Space(2)]
-    public List<GameObject> gridSockets;
-    public List<GameObject> listItemObjects;
+    public List<GameObject> grids = new();
+
+    public GridData(Transform transform, GameObject gridObj, int gridWidth, int gridHeight, int gridDepth)
+    {
+        GridManager.CreateGrid(gridWidth, gridHeight, gridDepth, gridObj, transform, grids);
+    }
 }

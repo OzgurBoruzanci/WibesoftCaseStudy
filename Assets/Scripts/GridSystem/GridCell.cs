@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
-    public int startX;
-    public int startZ;
-    public bool isSlotFull;
+    public int gridID;
+    public bool isOccupied = false;
+    public Vector2Int gridPosition;
 }

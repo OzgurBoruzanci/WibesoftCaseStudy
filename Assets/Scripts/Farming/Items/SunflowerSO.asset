@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de703c1a73a989a4eb1c46e3d8998bca, type: 3}
+  m_Name: SunflowerSO
+  m_EditorClassIdentifier: 
+  growthStages:
+  - {fileID: 8113142151235268963, guid: 83af0d823dcbd394d89b7d5552dcd057, type: 3}
+  - {fileID: 4924921089882602484, guid: 5788bb9f2d183e94fac987457211da79, type: 3}
+  - {fileID: 3230649625016436484, guid: 7dead5d5aec323c49acd16d2c0c603db, type: 3}
+  currentStage: 0
+  harvestAmount: 3
+  growthTime: 60

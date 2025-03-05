@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de703c1a73a989a4eb1c46e3d8998bca, type: 3}
+  m_Name: CarrotSO
+  m_EditorClassIdentifier: 
+  growthStages:
+  - {fileID: 1296270282187863579, guid: c2ec525b53631da4895e13bbb1355945, type: 3}
+  - {fileID: 7020887054251035013, guid: a51dbd312b6539a4f8f9f68512e702b3, type: 3}
+  - {fileID: 6848752254021293800, guid: 2501f08a7f5a6e442af97650dd155e8e, type: 3}
+  currentStage: 0
+  harvestAmount: 3
+  growthTime: 10
