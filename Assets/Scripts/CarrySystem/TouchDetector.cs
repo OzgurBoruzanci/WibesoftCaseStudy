@@ -10,6 +10,7 @@ public class TouchDetector : MonoBehaviour
     public bool IsCreateField { get; private set; }
     public static TouchDetector Instance;
     public RaycastHit hit;
+    public Camera camera;
 
     void Start()
     {
@@ -64,7 +65,7 @@ public class TouchDetector : MonoBehaviour
 
     private void HandleMouseInput()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.TryGetComponent<CarryController>(out var carry))
@@ -117,7 +118,7 @@ public class TouchDetector : MonoBehaviour
 
     private void PerformRaycast()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.TryGetComponent<IHandler>(out var handler))

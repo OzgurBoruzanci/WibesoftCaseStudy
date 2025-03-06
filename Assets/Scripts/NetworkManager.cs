@@ -33,18 +33,23 @@ public class NetworkManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        if (connectionType == ConnectionType.Local)
-        {
-            ipAddress = "127.0.0.1";
-        }
-        Debug.Log("NetworkManager created. Server IP: " + ipAddress + ", Port: " + port);
+        ipAddress = "127.0.0.1";  // Sunucunun gerçek IP adresini koy.
+        port = 5001;  // SignalR sunucunun çalıştığı portu koy.
+
         serverUrl = $"http://{ipAddress}:{port}/gameHub";
+        
+        Debug.Log("NetworkManager created. Server URL: " + serverUrl);
+    }
+    void Start()
+    {
+        Connect();
     }
 
     public async Task Connect()
     {
         try
         {
+            Debug.Log("Connecting to SignalR server...");
             connection = new HubConnectionBuilder()
             .WithUrl(serverUrl, options =>
             {
@@ -60,11 +65,11 @@ public class NetworkManager : MonoBehaviour
 
             if (connection == null)
             {
-                Debug.Log("Connection is null " + connection.ConnectionId);
+                Debug.LogError("Connection object is null!");
+                return;
             }
 
-            connection.On<string>("OnConnected", OnConnected);
-
+            Debug.Log("Attempting to start connection...");
             await connection.StartAsync();
             Debug.Log("Connected to SignalR server.");
         }
@@ -75,10 +80,18 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
+
     public bool IsConnected()
     {
+        if (connection == null)
+        {
+            Debug.LogWarning("Connection is NULL!");
+            return false;
+        }
+
         return connection.State == HubConnectionState.Connected;
     }
+
 
     private async void SendExitTime()
     {

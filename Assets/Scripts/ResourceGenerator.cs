@@ -8,11 +8,8 @@ public class ResourceGenerator : MonoBehaviour
     public float generationIntervalMinutes = 5f; // 5 dakika arayla kaynak üret
     private DateTime lastGenerationTime;
 
-    private NetworkManager networkManager;
-
     private void Start()
     {
-        networkManager = NetworkManager.Instance;
         StartCoroutine(ResourceGenerationLoop());
     }
 
@@ -20,7 +17,7 @@ public class ResourceGenerator : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(() => networkManager.IsConnected());
+            yield return new WaitUntil(() => NetworkManager.Instance.IsConnected());
             if (DateTime.UtcNow - lastGenerationTime >= TimeSpan.FromMinutes(generationIntervalMinutes))
             {
                 GenerateResource();
